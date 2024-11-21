@@ -27,12 +27,16 @@ namespace Persistence.Data.Configuration
             .HasMaxLength(50)
             .IsRequired(); // Required value
 
-            builder.HasIndex(p => p.FlightCarrier)
-            .IsUnique(); //Unique Field
+            /* builder.HasIndex(p => p.FlightCarrier)
+            .IsUnique(); //Unique Field */
             
             builder.Property(p => p.FlightNumber)
             .HasMaxLength(50)
             .IsRequired();
+
+            builder.HasData(
+                new Transport { Id = 1, FlightCarrier = "Avianca", FlightNumber = "100001" }
+            );
         }
     }
 }
