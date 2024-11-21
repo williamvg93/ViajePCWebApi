@@ -9,6 +9,15 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// Add HttpClient to the Project
+builder.Services.AddHttpClient();
+
+// Add Controllers
+builder.Services.AddControllers();
+
+// Add Services
+builder.Services.AddApplicationServices();
+
 // Add the DBContext and connection to the DB.
 builder.Services.AddDbContext<ApiVpContext>(options => {
     string connecStr = builder.Configuration.GetConnectionString("connecMysql");
@@ -26,6 +35,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+// Use the Controllers Created
+app.MapControllers();
 
 app.Run();
 
