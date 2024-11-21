@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Entity
 {
-    public class Trasnport : BaseEntity
+    public class Transport : BaseEntity
     {
         public string FlightCarrier { get; set; }
         public string FlightNumber { get; set; }
